@@ -1,0 +1,21 @@
+{% extends 'base.html' %}
+{% load static %}
+{% load bootstrap4 %}
+{% bootstrap_form form %}
+{% block title %}Авторизация{% endblock %}
+
+{% block content %}
+
+<div class="row mt-5">
+    <div class="col-4"></div>
+    <div class="col-4 pt-4 pb-4 bg-white">
+        <form method="post">
+            {% csrf_token %}
+            {% bootstrap_form form show_label=False size='small' %}
+            {% bootstrap_button 'Войти' button_class='btn-info mt-2' button_type='submit' size='small' %}
+        </form>
+    </div>
+</div>
+
+
+{% endblock %}

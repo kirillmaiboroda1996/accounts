@@ -21,4 +21,33 @@ For dev runnig project on your host the first you need to clone the project.
 https://github.com/kirillmaiboroda1996/accounts.git
 ```
 
-The next step you need to add IDs and Secrets in your `registration/settings` directory
+The next step you need to add .env in your root `registration/` directory.
+
+For example:
+
+```bash
+DEBUG=True
+SECRET_KEY=foo
+FACEBOOK_KEY=foo
+FACEBOOK_SECRET=bar
+
+GOOGLE_OAUTH2_KEY=foo
+GOOGLE_OAUTH2_SECRET=bar
+```
+
+Also you need apply to migrations:
+  
+```bash
+python manage.py makemigrations && python manage.py migrate
+```
+
+Finaly you can run server:
+  
+```bash
+python manage.py runserver
+```
+
+check out http://localhost:8000/registration/
+
+
+

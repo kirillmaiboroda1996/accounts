@@ -1,3 +1,5 @@
 env
 .idea
 registration/users/__pycache__/
+registration/static
+registration/.elasticbeanstalk

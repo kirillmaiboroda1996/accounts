@@ -43,7 +43,7 @@ class UserLoginView(LoginView):
     redirect_authenticated_user = True
     form_class = CustomUserLoginForm
     template_name = 'users/login.html'
-    success_url = reverse_lazy('users:index')
+    success_url = reverse_lazy('users:account')
 
 
 class UserLogoutView(LogoutView):

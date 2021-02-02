@@ -8,11 +8,20 @@
 
 <div class="row mt-5">
     <div class="col-4"></div>
-    <div class="col-4 pt-4 pb-4 bg-white">
-        <form method="post">
+    <div class="col-4 pt-4 pb-4 bg-white rounded">
+        <form method="post" class="">
             {% csrf_token %}
             {% bootstrap_form form show_label=False size='small' %}
-            {% bootstrap_button 'Войти' button_class='btn-info mt-2' button_type='submit' size='small' %}
+            <div class=" col-8 row">
+
+                <a href="{% url 'social:begin' 'facebook' %}" class="ml-3" style="font-size: 30px; font-weight: 600;">
+                    <img src="https://online-dating-bucket.s3-us-west-2.amazonaws.com/images/facebook.svg" style="width: 20px;">
+                </a>
+                <a href="{% url 'social:begin' 'google-oauth2' %}" class="ml-3" style="font-size: 30px; font-weight: 600;">
+                    <img src="https://online-dating-bucket.s3-us-west-2.amazonaws.com/images/search.svg" style="width: 20px;">
+                </a>
+                {% bootstrap_button 'Войти' button_class='btn-outline-info mt-2 col-4 ml-3' button_type='submit' size='small' %}
+            </div>
         </form>
     </div>
 </div>

@@ -69,7 +69,7 @@ class UserRegistrationForm(forms.ModelForm):
         widget=forms.TextInput(
             attrs={'class': 'form-control', 'placeholder': 'First Name'}
         ),
-        required=False,
+        required=True,
         label='First Name'
     )
     last_name = forms.CharField(
@@ -77,7 +77,7 @@ class UserRegistrationForm(forms.ModelForm):
         widget=forms.TextInput(
             attrs={'class': 'form-control', 'placeholder': 'First Name'}
         ),
-        required=False,
+        required=True,
         label='Last Name'
     )
     password = forms.CharField(

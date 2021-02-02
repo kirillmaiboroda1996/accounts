@@ -1,0 +1,24 @@
+{% extends 'base.html' %}
+{% load static %}
+{% load bootstrap4 %}
+
+{% block title %}Edit Account{% endblock %}
+
+{% block content %}
+
+<div class="row">
+    <div class="rounded bg-white mt-5 mb-3 mx-auto" style="width: 380px;">
+        <form method="post" class="mt-4 col-11 mx-auto">
+            {% csrf_token %}
+            {% bootstrap_form form layout='horizontal' show_label=True size='small' %}
+            <a href="{% url 'users:index' %}" class="btn btn-sm btn-outline-secondary mr-2">Отмена</a>
+            {% bootstrap_button 'Сохранить изменения' button_class='btn btn-sm btn-outline-primary' button_type='submit' size='small' %}
+        </form>
+        <div class="row pb-2 mt-3">
+
+        </div>
+    </div>
+</div>
+
+
+{% endblock %}

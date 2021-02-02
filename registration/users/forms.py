@@ -1,7 +1,43 @@
-from django.contrib.auth.forms import AuthenticationForm
+from django.contrib.auth.forms import AuthenticationForm, PasswordChangeForm
 from django.contrib.auth.password_validation import validate_password
 from django import forms
 from .models import CustomUser
+
+
+class SetNewPasswordForm(PasswordChangeForm):
+    old_password = forms.CharField(
+        strip=False,
+        widget=forms.PasswordInput(
+            attrs={'autocomplete': 'current-password', 'autofocus': True, 'class': 'form-control',
+                   'placeholder': 'Old Password'}, ),
+        label='Old Password'
+    )
+    new_password1 = forms.CharField(
+        widget=forms.PasswordInput(
+            attrs={'autocomplete': 'new-password', 'class': 'form-control', 'placeholder': 'New password'}),
+        strip=False,
+        label='New password'
+    )
+    new_password2 = forms.CharField(
+        widget=forms.PasswordInput(
+            attrs={'autocomplete': 'new-password', 'class': 'form-control', 'placeholder': 'Confirm New Password'}),
+        strip=False,
+        label='Confirm Password'
+    )
+
+
+class AccountEditForm(forms.ModelForm):
+    """Форма правки личных данных"""
+    email = forms.EmailField(
+        required=True,
+        widget=forms.EmailInput(attrs={'class': 'form-control'})
+    )
+    first_name = forms.CharField(label='Имя', required=False)
+    last_name = forms.CharField(label='Фамилия', required=False)
+
+    class Meta:
+        model = CustomUser
+        fields = ['email', 'first_name', 'last_name', 'username']
 
 
 class CustomUserLoginForm(AuthenticationForm):

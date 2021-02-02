@@ -5,6 +5,7 @@ from .models import CustomUser
 
 
 class EmailBackend(ModelBackend):
+    """Backend for log in by email or username."""
     def authenticate(self, request, username=None, password=None, **kwargs):
         try:
             user = CustomUser.objects.get(Q(username__iexact=username) | Q(email__iexact=username))

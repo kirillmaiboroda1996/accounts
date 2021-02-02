@@ -1,24 +1,26 @@
 {% extends 'base.html' %}
 {% load static %}
 {% load bootstrap4 %}
-{% block title %}Account{% endblock %}
 
 
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Title</title>
+    <title>{% block title %}Account{% endblock %}</title>
 </head>
 {% block content %}
-<div class="col-4 mx-auto bg-white mt-5">
-  <h5>Welcome! {{ object.first_name }}  {{ object.last_name }}</h5>
+<div class="col-4 mx-auto rounded bg-white mt-5">
+  <h5 class="pt-3">Welcome! {{ object.first_name }}  {{ object.last_name }}</h5>
+  <hr/>
   <h5>Your email: {{ object.email }}</h5>
-  <div>
-    <a href="{% url 'users:change_account' %}">Edit Account </a>
-    <a href="{% url 'users:password_change' %}">Set Password </a>
+  <div class="mt-4 pb-3">
+    <a class="btn btn-outline-dark" href="{% url 'users:edit_account' %}">Edit Account</a>
+      <a class="btn btn-outline-dark" href="{% url 'users:password_change' %}">Edit Password</a>
+    <a class="btn btn-outline-dark" href="{% url 'users:logout' %}">Log Out </a>
   </div>
 
 </div>
+
 {% endblock %}
 </html>

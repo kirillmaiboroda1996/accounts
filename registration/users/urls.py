@@ -12,5 +12,6 @@ urlpatterns = [
     path('index/', AccountView.as_view(), name='index'),
     path('account/edit/', EditAccount.as_view(), name='edit_account'),
     path('account/password/change/', UserPasswordChangeView.as_view(), name='password_change'),
+    path('', AccountEditRedirectView.as_view(), name='redirect-account')
 
 ]

@@ -7,7 +7,7 @@ from django.urls import reverse_lazy
 from django.views.generic import (
     DetailView,
     CreateView,
-    UpdateView,
+    UpdateView, RedirectView,
 )
 
 from .models import CustomUser
@@ -73,3 +73,9 @@ class UserPasswordChangeView(SuccessMessageMixin, LoginRequiredMixin, PasswordCh
     success_url = reverse_lazy('users:index')
     form_class = SetNewPasswordForm
     success_message = 'Password changed.'
+
+
+class AccountEditRedirectView(LoginRequiredMixin, RedirectView):
+    """Redirect on visit root site uri."""
+    url = reverse_lazy('users:edit_account')
+

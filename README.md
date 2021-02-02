@@ -35,7 +35,7 @@ GOOGLE_OAUTH2_KEY=foo
 GOOGLE_OAUTH2_SECRET=bar
 ```
 
-Also you need apply to migrations:
+Also you need to apply migrations:
   
 ```bash
 python manage.py makemigrations && python manage.py migrate

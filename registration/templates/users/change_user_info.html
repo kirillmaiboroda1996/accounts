@@ -12,7 +12,7 @@
             {% csrf_token %}
             {% bootstrap_form form layout='horizontal' show_label=True size='small' %}
             <a href="{% url 'users:index' %}" class="btn btn-sm btn-outline-secondary mr-2">Отмена</a>
-            {% bootstrap_button 'Сохранить изменения' button_class='btn btn-sm btn-outline-primary' button_type='submit' size='small' %}
+            {% bootstrap_button 'Save changes' button_class='btn btn-sm btn-outline-primary' button_type='submit' size='small' %}
         </form>
         <div class="row pb-2 mt-3">
 

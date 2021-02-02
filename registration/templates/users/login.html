@@ -2,7 +2,7 @@
 {% load static %}
 {% load bootstrap4 %}
 {% bootstrap_form form %}
-{% block title %}Авторизация{% endblock %}
+{% block title %}Log in{% endblock %}
 
 {% block content %}
 
@@ -12,15 +12,17 @@
         <form method="post" class="">
             {% csrf_token %}
             {% bootstrap_form form show_label=False size='small' %}
-            <div class=" col-8 row">
-
+            <div class=" col-12 row">
+                <div>
                 <a href="{% url 'social:begin' 'facebook' %}" class="ml-3" style="font-size: 30px; font-weight: 600;">
                     <img src="https://online-dating-bucket.s3-us-west-2.amazonaws.com/images/facebook.svg" style="width: 20px;">
                 </a>
                 <a href="{% url 'social:begin' 'google-oauth2' %}" class="ml-3" style="font-size: 30px; font-weight: 600;">
                     <img src="https://online-dating-bucket.s3-us-west-2.amazonaws.com/images/search.svg" style="width: 20px;">
                 </a>
-                {% bootstrap_button 'Войти' button_class='btn-outline-info mt-2 col-4 ml-3' button_type='submit' size='small' %}
+                {% bootstrap_button 'Войти' button_class='btn-outline-info btn-sm ml-3' button_type='submit' size='small' %}
+                <a class="btn btn-primary btn-sm  ml-3" href="{% url 'users:user_registration' %}">Sign Up</a>
+                </div>
             </div>
         </form>
     </div>
